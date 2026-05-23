@@ -1,0 +1,35 @@
+.page { padding: var(--section-py) var(--section-px); min-height: 60vh; }
+.pageHeader { margin-bottom: 40px; }
+.pageTitle { font-family: var(--font-serif); font-size: 32px; font-weight: 400; color: var(--navy); margin-bottom: 10px; }
+.pageSub { font-size: 14px; color: var(--gray-600); line-height: 1.75; max-width: 500px; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.partnerCard {
+  background: var(--white);
+  border: 0.5px solid var(--navy-soft);
+  border-radius: var(--r-lg);
+  padding: 28px 20px;
+  text-align: center;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.partnerCard:hover {
+  border-color: var(--navy);
+  box-shadow: 0 4px 16px rgba(27,58,107,0.08);
+}
+
+.partnerLogo {
+  width: 56px; height: 56px;
+  background: var(--navy-pale);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.partnerName { font-size: 14px; font-weight: 500; color: var(--navy); }
+
+@media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }

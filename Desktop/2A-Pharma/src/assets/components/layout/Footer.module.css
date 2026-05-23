@@ -1,0 +1,120 @@
+.footer {
+  background: var(--navy-dark);
+  color: #A8BED8;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 52px var(--section-px) 40px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+}
+
+/* ── Brand ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoMark {
+  width: 42px;
+  height: 42px;
+  background: var(--green);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.logoText span {
+  color: var(--green-light);
+}
+
+.logoSub {
+  font-size: 11px;
+  color: #6A8BAE;
+  margin-top: 2px;
+}
+
+/* ── Columns ── */
+.cols {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.colTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.col a,
+.col span {
+  font-size: 13px;
+  color: #6A8BAE;
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.col a:hover {
+  color: #A8BED8;
+}
+
+/* ── Bottom ── */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px var(--section-px);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.copy {
+  font-size: 12px;
+  color: #6A8BAE;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.links a {
+  font-size: 12px;
+  color: #6A8BAE;
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.links a:hover {
+  color: #A8BED8;
+}
+
+@media (max-width: 768px) {
+  .top { flex-direction: column; }
+  .cols { gap: 28px; }
+}
