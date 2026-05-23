@@ -27,6 +27,10 @@ export default function Map() {
                     left: "50%",
                     transform: "translateX(-50%)",
                     margin: "12px 12px 12px 12px",
+
+
+
+                    
                     padding: "10px 16px",
                     borderRadius: "8px",
                     border: "none",
