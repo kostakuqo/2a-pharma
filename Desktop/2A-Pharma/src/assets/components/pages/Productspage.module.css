@@ -1,71 +1,43 @@
-.page {
-  padding: var(--section-py) var(--section-px);
-  min-height: 60vh;
-}
+.page { padding: var(--section-py) var(--section-px); min-height: 60vh; }
 
-
-
-
-.pageHeader {
-  margin-bottom: 36px;
-}
+.pageHeader { margin-bottom: 36px; }
 
 .pageTitle {
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 400;
   color: var(--navy);
   margin-bottom: 10px;
 }
 
-.pageSub {
-  font-size: 14px;
-  color: var(--gray-600);
-  line-height: 1.75;
-  max-width: 500px;
-}
+.pageSub { font-size: 14px; color: var(--gray-600); line-height: 1.75; max-width: 500px; }
 
-.filters {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 
 .filterBtn {
-  padding: 8px 18px;
+  padding: 8px 20px;
   border-radius: 20px;
-  border: 0.5px solid var(--navy-soft);
-
+  border: 1px solid var(--navy-soft);
+  background: var(--white);
   color: var(--gray-600);
   font-size: 13px;
+  font-weight: 500;
   font-family: var(--font-sans);
   cursor: pointer;
   transition: all var(--t-fast);
 }
-
 .filterBtn:hover {
   border-color: var(--navy);
   color: var(--navy);
   background: var(--navy-pale);
 }
-
 .filterActive {
   background: var(--navy) !important;
-  color: var(--white) !important;
+  color: #fff !important;
   border-color: var(--navy) !important;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
-@media (max-width: 900px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 540px) {
-  .grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .grid { grid-template-columns: 1fr; } }

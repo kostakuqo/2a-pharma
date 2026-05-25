@@ -24,13 +24,10 @@ export default function Map() {
                 onClick={goToMaps}
                 style={{
                     position: "absolute",
+                    bottom: "-50px",
                     left: "50%",
                     transform: "translateX(-50%)",
                     margin: "12px 12px 12px 12px",
-
-
-
-                    
                     padding: "10px 16px",
                     borderRadius: "8px",
                     border: "none",
@@ -39,7 +36,7 @@ export default function Map() {
                     cursor: "pointer",
                 }}
             >
-                Navigate me
+                Navigate with Maps
             </button>
         </div>
     );
