@@ -23,7 +23,7 @@ export default function Navbar() {
         <Link to="/" className={styles.logo}>
           <div className={styles.logoMark}>2A</div>
           <div className={styles.logoText}>
-            <span className={styles.logoGreen}>2A</span> Pharma
+            <span className={styles.logoGreen}></span> Pharma
           </div>
         </Link>
 

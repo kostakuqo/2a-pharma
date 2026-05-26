@@ -1,18 +1,18 @@
 .page { padding: var(--section-py) var(--section-px); }
 .pageHeader { margin-bottom: 40px; }
-.pageTitle { font-family: var(--font-serif); font-size: 34px; font-weight: 400; color: var(--navy); margin-bottom: 10px; }
-.pageSub { font-size: 14px; color: var(--gray-600); line-height: 1.75; max-width: 480px; }
+.pageTitle { font-family: var(--font-serif); font-size: 60px; font-weight: 400; color: var(--navy); margin-bottom: 10px; }
+.pageSub { font-size: 20px; color: var(--gray-600); line-height: 1.75; max-width: 480px; }
 
 .grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; }
 
 .info { display: flex; flex-direction: column; gap: 16px; }
-.infoItem { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--gray-600); }
-.infoIcon { font-size: 20px; flex-shrink: 0; }
-.infoItem a { color: var(--navy); font-weight: 500; text-decoration: none; transition: color var(--t-fast); }
+.infoItem { display: flex; align-items: center; gap: 12px; font-size: 20px; color: var(--gray-600); }
+.infoIcon { font-size: 30px; flex-shrink: 0; }
+.infoItem a { color: var(--navy); font-weight: 500;font-size: 20px; text-decoration: none; transition: color var(--t-fast); }
 .infoItem a:hover { color: var(--green); }
 
 .formWrap {
-  background: #EEF3FA; border-radius: var(--r-xl);
+  background: #112E59; border-radius: var(--r-xl);
   padding: 36px; border: 1px solid var(--navy-pale);
 }
 .form { display: flex; flex-direction: column; gap: 18px; }

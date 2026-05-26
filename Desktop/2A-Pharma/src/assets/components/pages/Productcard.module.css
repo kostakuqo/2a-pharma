@@ -1,6 +1,6 @@
 .card {
   background: var(--white);
-  border: 1px solid var(--navy-pale);
+  border: 1px solid #112E59;
   border-radius: var(--r-lg);
   overflow: hidden;
   transition: all var(--t-fast);
@@ -8,9 +8,10 @@
   flex-direction: column;
 }
 .card:hover {
-  border-color: var(--green);
+  border-color: #112E59;
   box-shadow: 0 6px 24px rgba(26,138,60,0.15);
   transform: translateY(-3px);
+  cursor: pointer;
 }
 
 /* ── Image area — înălțime fixă 160px ── */
@@ -92,8 +93,8 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
-  border-radius: 20px;
+  padding: 6px 14px;
+  border-radius: 12px;
   font-size: 11px;
   font-weight: 600;
 }

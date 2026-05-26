@@ -5,16 +5,12 @@ import styles from "./ProductCard.module.css";
 export default function ProductCard({ product }) {
   const { lang } = useLang();
   const tx = t[lang];
-
   const name  = lang === "al" ? product.nameAl  : product.name;
   const desc  = lang === "al" ? product.descriptionAl : product.description;
   const cat   = lang === "al" ? product.categoryAl : product.category;
-
   const stockLabel = tx.stock[product.stock];
   const stockClass = styles[`badge_${product.stock}`];
 
-  // Daca are foto → background alb cu contain
-  // Daca nu are foto → gradient colorat dupa stoc + emoji
   const imgClass = product.image
     ? styles.img_real
     : styles[`img_${product.stock}`];

@@ -24,7 +24,7 @@ export default function Map() {
                 onClick={goToMaps}
                 style={{
                     position: "absolute",
-                    bottom: "-50px",
+                    bottom: "-55px",
                     left: "50%",
                     transform: "translateX(-50%)",
                     margin: "12px 12px 12px 12px",

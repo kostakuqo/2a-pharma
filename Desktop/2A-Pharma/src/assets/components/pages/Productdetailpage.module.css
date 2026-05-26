@@ -17,7 +17,6 @@
   align-items: start;
 }
 
-/* ── Image ── */
 .imageWrap { position: relative; }
 
 .imageBox {
@@ -30,7 +29,6 @@
   overflow: hidden;
 }
 
-/* Kur ka foto reale */
 .productImage {
   width: 100%;
   height: 100%;
@@ -39,7 +37,6 @@
   background: #fff;
 }
 
-/* Kur nuk ka foto — emoji i madh */
 .productIcon {
   font-size: 100px;
   line-height: 1;
@@ -58,7 +55,6 @@
 .badge_low { background: var(--warning-bg); color: var(--warning-text); }
 .badge_out { background: var(--danger-bg);  color: var(--danger-text); }
 
-/* ── Info ── */
 .info { display: flex; flex-direction: column; gap: 18px; }
 
 .cat {
@@ -109,7 +105,7 @@
 }
 .ctaBtnOutline:hover { border-color: var(--navy); background: var(--navy-pale); }
 
-/* ── Specs ── */
+
 .specsSection {
   background: #EEF3FA; border-radius: var(--r-xl);
   padding: 36px; margin-bottom: 48px; border: 1px solid var(--navy-pale);
@@ -131,7 +127,7 @@
 .specLabel { color: var(--gray-600); }
 .specValue { color: var(--navy); font-weight: 600; text-align: right; }
 
-/* ── Related ── */
+
 .relatedSection { margin-bottom: 48px; }
 
 .relatedTitle {
