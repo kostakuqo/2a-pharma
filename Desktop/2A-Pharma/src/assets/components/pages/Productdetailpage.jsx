@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useLang, t } from "../../hooks/useLang.jsx";
-import { PRODUCTS } from "../../data/products.js";
+import { PRODUCTS, getField } from "../../data/products.js";
 import styles from "./ProductDetailPage.module.css";
 
 const IconArrowLeft = () => (
@@ -58,11 +58,19 @@ const PRODUCT_DETAILS = {
   },
 };
 
+/* Labels per lingua */
+const labels = {
+  al: { notFound: "Produkti nuk u gjet", back: "Kthehu te produktet", backBtn: "Kthehu", specs: "Specifikimet teknike", related: "Produkte të ngjashme", warranty: "Garancia", contactPrice: "Na kontaktoni për çmim", sendEmail: "Dërgo email" },
+  en: { notFound: "Product not found",   back: "Back to products",   backBtn: "Go back", specs: "Technical specifications", related: "Related products",  warranty: "Warranty",  contactPrice: "Contact us for price",  sendEmail: "Send email" },
+  it: { notFound: "Prodotto non trovato", back: "Torna ai prodotti", backBtn: "Indietro", specs: "Specifiche tecniche",      related: "Prodotti correlati", warranty: "Garanzia", contactPrice: "Contattaci per il prezzo", sendEmail: "Invia email" },
+};
+
 export default function ProductDetailPage() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const { lang } = useLang();
-  const tx = t[lang];
+  const { id }     = useParams();
+  const navigate   = useNavigate();
+  const { lang }   = useLang();
+  const tx         = t[lang];
+  const lb         = labels[lang] || labels.en;
 
   const product = PRODUCTS.find(p => p.id === Number(id));
 
@@ -70,18 +78,17 @@ export default function ProductDetailPage() {
     return (
       <div className={styles.notFound}>
         <div className={styles.notFoundIcon}>🔍</div>
-        <h2>{lang === "al" ? "Produkti nuk u gjet" : "Product not found"}</h2>
+        <h2>{lb.notFound}</h2>
         <Link to="/products" className={styles.backBtn}>
-          <IconArrowLeft />
-          {lang === "al" ? "Kthehu te produktet" : "Back to products"}
+          <IconArrowLeft /> {lb.back}
         </Link>
       </div>
     );
   }
 
-  const name    = lang === "al" ? product.nameAl  : product.name;
-  const desc    = lang === "al" ? product.descriptionAl : product.description;
-  const cat     = lang === "al" ? product.categoryAl : product.category;
+  const name    = getField(product, "name", lang);
+  const desc    = getField(product, "description", lang);
+  const cat     = getField(product, "category", lang);
   const stock   = tx.stock[product.stock];
   const details = PRODUCT_DETAILS[product.id] || {};
   const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 3);
@@ -91,31 +98,25 @@ export default function ProductDetailPage() {
 
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
-        <Link to="/">{lang === "al" ? "Kryefaqja" : "Home"}</Link>
+        <Link to="/">{tx.nav.home}</Link>
         <span>/</span>
-        <Link to="/products">{lang === "al" ? "Produktet" : "Products"}</Link>
+        <Link to="/products">{tx.nav.products}</Link>
         <span>/</span>
         <span className={styles.breadActive}>{name}</span>
       </div>
 
       {/* Main grid */}
       <div className={styles.mainGrid}>
-
-        {/* Image */}
         <div className={styles.imageWrap}>
           <div className={`${styles.imageBox} ${!product.image ? styles[`img_${product.stock}`] : ""}`}>
-            {product.image ? (
-              <img src={product.image} alt={name} className={styles.productImage} />
-            ) : (
-              <span className={styles.productIcon}>{product.icon}</span>
-            )}
+            {product.image
+              ? <img src={product.image} alt={name} className={styles.productImage} />
+              : <span className={styles.productIcon}>{product.icon}</span>
+            }
           </div>
-          <div className={`${styles.stockBadge} ${styles[`badge_${product.stock}`]}`}>
-            {stock}
-          </div>
+          <div className={`${styles.stockBadge} ${styles[`badge_${product.stock}`]}`}>{stock}</div>
         </div>
 
-        {/* Info */}
         <div className={styles.info}>
           <div className={styles.cat}>{cat}</div>
           <h1 className={styles.name}>{name}</h1>
@@ -134,19 +135,17 @@ export default function ProductDetailPage() {
 
           {details.warranty && (
             <div className={styles.warrantyRow}>
-              <span className={styles.warrantyLabel}>{lang === "al" ? "Garancia" : "Warranty"}:</span>
+              <span className={styles.warrantyLabel}>{lb.warranty}:</span>
               <span className={styles.warrantyVal}>{details.warranty}</span>
             </div>
           )}
 
           <div className={styles.cta}>
             <a href="tel:+355684083950" className={styles.ctaBtnPrimary}>
-              <IconPhone />
-              {lang === "al" ? "Na kontaktoni për çmim" : "Contact us for price"}
+              <IconPhone /> {lb.contactPrice}
             </a>
             <a href="mailto:info@2apharma.al" className={styles.ctaBtnOutline}>
-              <IconMail />
-              {lang === "al" ? "Dërgo email" : "Send email"}
+              <IconMail /> {lb.sendEmail}
             </a>
           </div>
         </div>
@@ -155,9 +154,7 @@ export default function ProductDetailPage() {
       {/* Specs */}
       {details.specs && (
         <div className={styles.specsSection}>
-          <h2 className={styles.specsTitle}>
-            {lang === "al" ? "Specifikimet teknike" : "Technical specifications"}
-          </h2>
+          <h2 className={styles.specsTitle}>{lb.specs}</h2>
           <div className={styles.specsGrid}>
             {details.specs.map((s, i) => {
               const [label, value] = s.split(": ");
@@ -175,20 +172,18 @@ export default function ProductDetailPage() {
       {/* Related */}
       {related.length > 0 && (
         <div className={styles.relatedSection}>
-          <h2 className={styles.relatedTitle}>
-            {lang === "al" ? "Produkte të ngjashme" : "Related products"}
-          </h2>
+          <h2 className={styles.relatedTitle}>{lb.related}</h2>
           <div className={styles.relatedGrid}>
             {related.map(p => (
               <Link key={p.id} to={`/products/${p.id}`} className={styles.relatedCard}>
                 <div className={`${styles.relatedImg} ${styles[`img_${p.stock}`]}`}>
                   {p.image
-                    ? <img src={p.image} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} />
+                    ? <img src={p.image} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
                     : <span>{p.icon}</span>
                   }
                 </div>
                 <div className={styles.relatedBody}>
-                  <div className={styles.relatedName}>{lang === "al" ? p.nameAl : p.name}</div>
+                  <div className={styles.relatedName}>{getField(p, "name", lang)}</div>
                   <span className={`${styles.relatedBadge} ${styles[`badge_${p.stock}`]}`}>
                     {tx.stock[p.stock]}
                   </span>
@@ -202,11 +197,9 @@ export default function ProductDetailPage() {
       {/* Back */}
       <div className={styles.backWrap}>
         <button className={styles.backBtn} onClick={() => navigate(-1)}>
-          <IconArrowLeft />
-          {lang === "al" ? "Kthehu" : "Go back"}
+          <IconArrowLeft /> {lb.backBtn}
         </button>
       </div>
-
     </div>
   );
 }

@@ -148,4 +148,96 @@ export const t = {
       sitemap: "Sitemap",
     },
   },
+  it: {
+  nav: {
+    home: "Home",
+    about: "Chi siamo",
+    products: "Prodotti",
+    partners: "Partner",
+    contact: "Contatto",
+  },
+
+  hero: {
+    badge: "Attrezzature mediche certificate",
+    title1: "Attrezzature mediche",
+    title2: "per ogni professionista",
+    title3: "sanitario",
+    sub: "Distributore di apparecchiature mediche e farmaceutiche di alta qualità in Albania. Scelto da ospedali, cliniche e farmacie in tutto il paese.",
+    btnProducts: "Visualizza prodotti",
+    btnContact: "Contattaci",
+  },
+
+  stockTitle: "Panoramica magazzino",
+  stockSub: "Inventario in tempo reale",
+
+  deliveryTitle: "Consegna rapida in tutta l'Albania",
+  deliverySub: "Ordini elaborati entro 24 ore",
+
+  products: {
+    label: "I nostri prodotti",
+    title: "Catalogo attrezzature mediche",
+    sub: "Scopri la nostra vasta selezione di dispositivi medici certificati e forniture farmaceutiche.",
+    viewAll: "Visualizza tutti i prodotti",
+    details: "Dettagli",
+  },
+
+  features: {
+    label: "Perché scegliere noi",
+    title: "Qualità di cui fidarsi",
+
+    items: [
+      {
+        title: "Prodotti certificati",
+        desc: "Tutte le apparecchiature rispettano le normative UE e gli standard ISO."
+      },
+
+      {
+        title: "Consegna veloce",
+        desc: "Consegna nazionale entro 24–48 ore. In giornata per Tirana."
+      },
+
+      {
+        title: "Supporto esperto",
+        desc: "I nostri specialisti ti aiutano a scegliere l'attrezzatura giusta."
+      },
+
+      {
+        title: "Resi facili",
+        desc: "Politica di reso di 30 giorni per tutti i dispositivi non consumabili."
+      },
+    ],
+  },
+
+  partners: {
+    label: "I nostri partner",
+    title: "Scelti dalle principali organizzazioni sanitarie",
+  },
+
+  contact: {
+    label: "Contattaci",
+    title: "Contatto",
+
+    sub: "Hai una domanda o hai bisogno di un preventivo? Siamo qui per aiutarti.",
+
+    name: "Nome",
+    email: "Email",
+    phone: "Numero di telefono",
+    message: "Il tuo messaggio",
+    send: "Invia messaggio",
+    hours: "Lun – Ven, 08:00 – 17:00",
+  },
+
+  stock: {
+    in: "Disponibile",
+    low: "Scorte basse",
+    out: "Esaurito",
+  },
+
+  footer: {
+    copy: "© 2026 2A Pharma. Tutti i diritti riservati.",
+    privacy: "Privacy policy",
+    terms: "Termini",
+    sitemap: "Mappa del sito",
+  },
+},
 };

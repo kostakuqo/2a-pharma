@@ -24,6 +24,18 @@ export default function AboutPage() {
       vision: "Our vision",
       visionText: "To be the preferred partner for every healthcare institution in Albania, contributing to the improvement of healthcare quality.",
     },
+     it: {
+  label: "Chi siamo",
+  title: "Chi siamo",
+  sub: "2A Pharma è un distributore leader di dispositivi medici e farmaceutici in Albania, con oltre 12 anni di esperienza nel settore.",
+
+  mission: "La nostra missione",
+  missionText: "Fornire dispositivi medici certificati e di alta qualità ai professionisti sanitari in tutta l’Albania, garantendo consegne rapide e supporto esperto.",
+
+  vision: "La nostra visione",
+  visionText: "Essere il partner di riferimento per ogni istituzione sanitaria in Albania, contribuendo al miglioramento della qualità dell’assistenza sanitaria.",
+}
+
   };
 
   const c = content[lang];

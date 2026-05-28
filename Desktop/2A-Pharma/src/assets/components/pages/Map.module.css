@@ -1,0 +1,31 @@
+.mapBtn {
+  position: absolute;
+  bottom: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin: 12px;
+  padding: 10px 16px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: #0F2A52;
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mapBtn:hover {
+  background: #1A8A3C;
+
+  transform: translateX(-50%) translateY(-2px);
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.25);
+}

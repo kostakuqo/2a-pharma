@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-/* ── Image area — înălțime fixă 160px ── */
+
 .img {
   height: 160px;
   width: 100%;
@@ -25,32 +25,32 @@
   overflow: hidden;
 }
 
-/* Când are foto reală — background alb + contain */
+
 .img_real {
   background: #fff;
   padding: 12px;
 }
 
-/* Când nu are foto — gradient colorat + emoji */
+
 .img_in  { background: linear-gradient(135deg, #C2EDD0 0%, #7DD9A0 100%); }
 .img_low { background: linear-gradient(135deg, #FDECC8 0%, #F5C842 100%); }
 .img_out { background: linear-gradient(135deg, #FCCFCF 0%, #F08080 100%); }
 
-/* Foto reală */
+
 .image {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-/* Emoji fallback */
+
 .icon {
   font-size: 52px;
   line-height: 1;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
 }
 
-/* ── Body ── */
+
 .body {
   padding: 16px;
   display: flex;
@@ -68,7 +68,7 @@
 }
 
 .name {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--navy);
   margin-bottom: 7px;
@@ -76,8 +76,8 @@
 }
 
 .desc {
-  font-size: 12px;
-  color: var(--gray-600);
+  font-size: 14px;
+  color: var(--gray-800);
   line-height: 1.6;
   margin-bottom: 16px;
   flex: 1;
@@ -95,7 +95,7 @@
   align-items: center;
   padding: 6px 14px;
   border-radius: 12px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
 }
 .badge_in  { background: var(--green-pale); color: var(--green-dark); }
@@ -106,9 +106,9 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--green);
+  color: #1A4675;
   background: none;
   border: none;
   cursor: pointer;

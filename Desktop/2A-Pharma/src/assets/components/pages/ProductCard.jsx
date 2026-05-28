@@ -1,30 +1,28 @@
 import { Link } from "react-router-dom";
 import { useLang, t } from "../../hooks/useLang.jsx";
+import { getField } from "../../data/products.js";
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ product }) {
   const { lang } = useLang();
   const tx = t[lang];
-  const name  = lang === "al" ? product.nameAl  : product.name;
-  const desc  = lang === "al" ? product.descriptionAl : product.description;
-  const cat   = lang === "al" ? product.categoryAl : product.category;
+
+  const name  = getField(product, "name", lang);
+  const desc  = getField(product, "description", lang);
+  const cat   = getField(product, "category", lang);
+
   const stockLabel = tx.stock[product.stock];
   const stockClass = styles[`badge_${product.stock}`];
-
-  const imgClass = product.image
-    ? styles.img_real
-    : styles[`img_${product.stock}`];
+  const imgClass   = product.image ? styles.img_real : styles[`img_${product.stock}`];
 
   return (
     <div className={styles.card}>
       <div className={`${styles.img} ${imgClass}`}>
-        {product.image ? (
-          <img src={product.image} alt={name} className={styles.image} />
-        ) : (
-          <span className={styles.icon}>{product.icon}</span>
-        )}
+        {product.image
+          ? <img src={product.image} alt={name} className={styles.image} />
+          : <span className={styles.icon}>{product.icon}</span>
+        }
       </div>
-
       <div className={styles.body}>
         <div className={styles.cat}>{cat}</div>
         <div className={styles.name}>{name}</div>
