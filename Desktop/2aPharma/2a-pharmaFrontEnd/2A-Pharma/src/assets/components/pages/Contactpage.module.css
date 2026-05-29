@@ -1,0 +1,61 @@
+.page { padding: var(--section-py) var(--section-px); }
+.pageHeader { margin-bottom: 40px; }
+.pageTitle { font-family: var(--font-serif); font-size: 60px; font-weight: 400; color: var(--navy); margin-bottom: 10px; }
+.pageSub { font-size: 20px; color: var(--gray-600); line-height: 1.75; max-width: 480px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; }
+
+.info { display: flex; flex-direction: column; gap: 16px; }
+.infoItem { display: flex; align-items: center; gap: 12px; font-size: 20px; color: var(--gray-600); }
+.infoIcon { font-size: 30px; flex-shrink: 0; }
+.infoItem a { color: var(--navy); font-weight: 500;font-size: 20px; text-decoration: none; transition: color var(--t-fast); }
+.infoItem a:hover { color: var(--green); }
+
+.formWrap {
+  background: #112E59; border-radius: var(--r-xl);
+  padding: 36px; border: 1px solid var(--navy-pale);
+}
+.form { display: flex; flex-direction: column; gap: 18px; }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.formGroup { display: flex; flex-direction: column; gap: 6px; }
+.formGroup label {
+  font-size: 11px; font-weight: 700; color: var(--navy);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.formGroup input, .formGroup textarea {
+  padding: 11px 14px; border: 1px solid var(--navy-soft);
+  border-radius: var(--r-md); font-size: 14px;
+  font-family: var(--font-sans); color: var(--navy);
+  background: var(--white); outline: none;
+  transition: border-color var(--t-fast);
+}
+.formGroup input:focus, .formGroup textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(26,138,60,0.1);
+}
+.formGroup textarea { resize: vertical; }
+
+.submitBtn {
+  padding: 13px 30px; background: var(--green); color: #fff;
+  border: none; border-radius: var(--r-md); font-size: 14px;
+  font-weight: 600; cursor: pointer; font-family: var(--font-sans);
+  transition: background var(--t-fast); align-self: flex-start;
+}
+.submitBtn:hover { background: var(--green-dark); }
+
+.successMsg { text-align: center; padding: 48px 20px; }
+.successIcon { font-size: 52px; color: var(--green); margin-bottom: 16px; }
+.successTitle { font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.successSub { font-size: 14px; color: var(--gray-600); margin-bottom: 28px; }
+.resetBtn {
+  padding: 11px 26px; background: var(--navy-pale); color: var(--navy);
+  border: 1px solid var(--navy-soft); border-radius: var(--r-md);
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  font-family: var(--font-sans); transition: all var(--t-fast);
+}
+.resetBtn:hover { background: var(--navy); color: #fff; }
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .formRow { grid-template-columns: 1fr; }
+}
