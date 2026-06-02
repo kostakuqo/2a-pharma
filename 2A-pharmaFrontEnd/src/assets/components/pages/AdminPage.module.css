@@ -1,0 +1,598 @@
+/* ─────────────────────────────
+   GLOBAL
+───────────────────────────── */
+.page {
+  min-height: 100vh;
+  background: #F4F6FA;
+  padding: 0;
+  font-family: inherit;
+}
+
+/* ─────────────────────────────
+   HEADER
+───────────────────────────── */
+.header {
+  background: #0F2A52;
+  padding: 0 40px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  box-shadow: 0 4px 14px rgba(15,42,82,0.18);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.userEmail {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.08);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.logoutBtn {
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.1);
+
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+  background: #E53E3E;
+  border-color: #E53E3E;
+}
+
+/* ─────────────────────────────
+   STATS
+───────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  margin: 28px 40px;
+}
+
+.statCard {
+  background: #fff;
+  border-radius: 14px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  border: 1px solid #E8EDF5;
+  box-shadow: 0 1px 4px rgba(15,42,82,0.06);
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(15,42,82,0.12);
+}
+
+.statNum {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0F2A52;
+}
+
+.statLbl {
+  font-size: 12px;
+  color: #7A8BA8;
+}
+
+/* ─────────────────────────────
+   TOOLBAR
+───────────────────────────── */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 40px 18px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F2A52;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  background: #1A8A3C;
+  color: #fff;
+
+  border: none;
+  border-radius: 10px;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.2s;
+  box-shadow: 0 3px 10px rgba(26,138,60,0.25);
+}
+
+.addBtn:hover {
+  background: #156F30;
+  transform: translateY(-1px);
+}
+
+/* ─────────────────────────────
+   FORM
+───────────────────────────── */
+.formCard {
+  background: #fff;
+  border-radius: 16px;
+
+  margin: 0 40px 24px;
+  padding: 28px;
+
+  border: 1px solid #E8EDF5;
+  box-shadow: 0 4px 14px rgba(15,42,82,0.08);
+}
+
+.formCard h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0F2A52;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3D5A80;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 12px 14px;
+
+  border: 1.5px solid #DDE3EE;
+  border-radius: 10px;
+
+  background: #F8FAFD;
+
+  font-size: 14px;
+
+  outline: none;
+  transition: all 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #1A8A3C;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(26,138,60,0.08);
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 18px;
+  padding-top: 18px;
+
+  border-top: 1px solid #E8EDF5;
+}
+
+/* ─────────────────────────────
+   BUTTONS (IMPORTANT PART)
+───────────────────────────── */
+.saveBtn {
+  background: #1A8A3C;
+  color: #fff;
+
+  padding: 10px 18px;
+  border-radius: 10px;
+
+  border: none;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.saveBtn:hover {
+  background: #156F30;
+  transform: translateY(-1px);
+}
+
+.cancelBtn {
+  background: #E54040;
+  color: white;
+
+  border: 1.5px solid #DDE3EE;
+
+  padding: 10px 16px;
+  border-radius: 10px;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.cancelBtn:hover {
+  background: #F4F6FA;
+  border-color: #0F2A52;
+  color: #0F2A52;
+}
+
+/* ─────────────────────────────
+   TABLE
+───────────────────────────── */
+.tableWrap {
+  background: #fff;
+  margin: 0 40px 40px;
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  border: 1px solid #E8EDF5;
+  box-shadow: 0 2px 10px rgba(15,42,82,0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: #F4F6FA;
+}
+
+.table th {
+  padding: 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #7A8BA8;
+  text-align: left;
+}
+
+.table td {
+  padding: 14px;
+  border-bottom: 1px solid #F0F4FA;
+}
+
+.table tbody tr:hover {
+  background: #F8FAFD;
+}
+
+/* ─────────────────────────────
+   BADGES
+───────────────────────────── */
+.badge {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.badge_in {
+  background: #EDFBF3;
+  color: #1A8A3C;
+}
+
+.badge_low {
+  background: #FFFBEA;
+  color: #B7791F;
+}
+
+.badge_out {
+  background: #FFF0F0;
+  color: #C53030;
+}
+
+/* ─────────────────────────────
+   ACTION BUTTONS (FINAL FIXED)
+───────────────────────────── */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.editBtn {
+  background: #EEF3FF;
+  color: #2F4B7C;
+
+  border: 1px solid #C7D6F2;
+  border-radius: 10px;
+
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.editBtn:hover {
+  background: #3D5A80;
+  color: #fff;
+}
+
+.deleteBtn {
+  background: #FFF1F1;
+  color: #C53030;
+
+  border: 1px solid #FFD1D1;
+  border-radius: 10px;
+
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+  background: #E53E3E;
+  color: #fff;
+}
+
+/* ─────────────────────────────
+   LOADING
+───────────────────────────── */
+.loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7A8BA8;
+}
+/* ─────────────────────────────
+   TABLET
+───────────────────────────── */
+@media (max-width: 1024px) {
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px;
+  }
+
+  .toolbar {
+    margin: 0 20px 18px;
+  }
+
+  .formCard {
+    margin: 0 20px 24px;
+  }
+
+  .tableWrap {
+    margin: 0 20px 30px;
+    overflow-x: auto;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* ─────────────────────────────
+   MOBILE
+───────────────────────────── */
+@media (max-width: 768px) {
+
+  .header {
+    padding: 12px 16px;
+    height: auto;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    margin: 16px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin: 0 16px 16px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .addBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .formCard {
+    margin: 0 16px 20px;
+    padding: 18px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+
+  .saveBtn,
+  .cancelBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tableWrap {
+    margin: 0 16px 20px;
+    overflow-x: auto;
+  }
+
+  .table {
+    min-width: 700px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 120px;
+  }
+
+  .editBtn,
+  .deleteBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .userEmail {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+
+/* ─────────────────────────────
+   VERY SMALL PHONES
+───────────────────────────── */
+@media (max-width: 480px) {
+
+  .title {
+    font-size: 15px;
+  }
+
+  .statNum {
+    font-size: 24px;
+  }
+
+  .formCard {
+    padding: 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 768px) {
+
+  .tableWrap {
+    overflow-x: hidden;
+  }
+
+  .table {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Ascunde header-ele inutile */
+  .table th:nth-child(3),
+  .table th:nth-child(4) {
+    display: none;
+  }
+
+  /* Ascunde coloanele Kategoria și Stoku */
+  .table td:nth-child(3),
+  .table td:nth-child(4) {
+    display: none;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 8px;
+  }
+
+  .iconCell {
+    width: 50px;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .productName {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .actions {
+    flex-direction: row;
+    gap: 6px;
+    justify-content: flex-end;
+  }
+
+  .editBtn,
+  .deleteBtn {
+    padding: 8px 10px;
+    font-size: 0;
+    min-width: 40px;
+    justify-content: center;
+  }
+
+  .editBtn svg,
+  .deleteBtn svg {
+    font-size: 14px;
+  }
+}

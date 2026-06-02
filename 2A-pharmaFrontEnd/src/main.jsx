@@ -1,0 +1,18 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+import "./global.css";
+// import "./migrateProducts.js";
+
+import { LangProvider } from "../src/assets/hooks/useLang.jsx";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <LangProvider>
+        <App />
+      </LangProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
