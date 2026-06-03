@@ -51,7 +51,7 @@ export default function ProductsPage() {
 
   if (loading) return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh", fontSize: "18px" }}>
-      Se încarcă produsele...
+      Po ngarkohen produktet...
     </div>
   );
 
@@ -81,7 +81,7 @@ export default function ProductsPage() {
 
       {filtered.length === 0 && (
         <div style={{ textAlign: "center", padding: "48px", color: "var(--gray-600)" }}>
-          Nu există produse în această categorie.
+          Nuk ka produkte në këtë kategori.
         </div>
       )}
     </div>

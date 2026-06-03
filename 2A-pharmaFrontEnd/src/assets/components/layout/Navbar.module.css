@@ -60,7 +60,7 @@
   color: var(--green);
 }
 
-
+/* ── Links ── */
 .links {
   display: flex;
   gap: 48px;
@@ -89,7 +89,7 @@
   font-weight: 600;
 }
 
-
+/* ── Right section ── */
 .right {
   display: flex;
   align-items: center;
@@ -97,7 +97,7 @@
   flex-shrink: 0;
 }
 
-
+/* ── Lang Group (desktop) ── */
 .langGroup {
   display: flex;
   gap: 4px;
@@ -110,7 +110,7 @@
   gap: 5px;
   padding: 5px 9px;
   border-radius: var(--r-sm);
-  border: 1px solid var(--navy-pale);
+  border: none;
   background: transparent;
   cursor: pointer;
   transition: all var(--t-fast);
@@ -124,13 +124,13 @@
 }
 
 .langBtn:hover {
-  background: var(--navy-pale);
-  border-color: var(--navy-soft);
+  background: rgba(255,255,255,0.12);
 }
 
 .langActive {
-  background: var(--navy) !important;
-  border-color: var(--navy) !important;
+  background: rgba(26,138,60,0.35) !important;
+  border: 2px solid #1A8A3C !important;
+  border-radius: var(--r-sm);
 }
 
 .langActive .langLabel {
@@ -140,7 +140,7 @@
 .langLabel {
   font-size: 11px;
   font-weight: 700;
-  color: var(--gray-600);
+  color: rgba(255,255,255,0.75);
   letter-spacing: 0.05em;
 }
 
@@ -165,7 +165,7 @@
   color: #fff;
 }
 
-
+/* ── Hamburger ── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -180,11 +180,11 @@
   display: block;
   width: 24px;
   height: 2.5px;
-  background: var(--navy);
+  background: #fff;
   border-radius: 2px;
 }
 
-
+/* ── Mobile dropdown menu ── */
 .mobileMenu {
   display: flex;
   flex-direction: column;
@@ -207,6 +207,7 @@
   color: var(--green);
 }
 
+/* ── Mobile Lang Group ── */
 .mobileLangGroup {
   display: flex;
   gap: 8px;
@@ -220,7 +221,7 @@
   gap: 6px;
   padding: 7px 12px;
   border-radius: var(--r-sm);
-  border: 1px solid var(--navy-pale);
+  border: 1.5px solid rgba(0,0,0,0.1);
   background: transparent;
   cursor: pointer;
   font-size: 12px;
@@ -235,8 +236,8 @@
 }
 
 .mobileLangActive {
-  background: var(--navy) !important;
-  border-color: var(--navy) !important;
+  background: #1A8A3C !important;
+  border-color: #1A8A3C !important;
   color: #fff !important;
 }
 
@@ -255,7 +256,7 @@
   text-decoration: none;
 }
 
-
+/* ── Responsive ── */
 @media (max-width: 1100px) {
   .links {
     gap: 18px;
@@ -300,6 +301,7 @@
     display: none;
   }
 }
+
 /* ── Bottom Navigation Bar ── */
 .bottomNav {
   display: none;
@@ -314,9 +316,9 @@
     right: 0;
     z-index: 1000;
     background: linear-gradient(135deg, #0F2A52 0%, #1A3F7A 50%, #1A8A3C 100%);
-    border-top: 1px solid #E8EDF5;
-    box-shadow: 0 -4px 20px rgba(15, 42, 82, 0.08);
-    padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 -4px 20px rgba(15, 42, 82, 0.15);
+    padding: 4px 0 max(4px, env(safe-area-inset-bottom));
     justify-content: space-around;
     align-items: center;
   }
@@ -326,11 +328,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
     flex: 1;
-    padding: 4px 0;
+    padding: 2px 0;
     text-decoration: none;
-    color: #7A8BA8;
+    color: rgba(255,255,255,0.5);
     transition: color 0.2s;
   }
 
@@ -338,9 +340,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 32px;
-    border-radius: 12px;
+    width: 36px;
+    height: 28px;
+    border-radius: 10px;
     transition: all 0.2s;
   }
 
@@ -348,23 +350,85 @@
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.01em;
+    color: rgba(255,255,255,0.5);
   }
 
   .bottomNavActive {
-    color: #1A8A3C;
+    color: #fff;
   }
 
   .bottomNavActive .bottomNavIcon {
-    background: #EDFBF3;
-    color: #1A8A3C;
+    background: rgba(26,138,60,0.35);
+    color: #fff;
   }
 
   .bottomNavActive .bottomNavLabel {
     font-weight: 700;
+    color: #fff;
   }
 
-  /* Adaugă padding jos la pagini ca să nu fie acoperite de bottomNav */
   .nav + * {
     padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bottomNav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, #0F2A52 0%, #1A3F7A 50%, #1A8A3C 100%);
+    border-top: 1px solid #E8EDF5;
+    box-shadow: 0 -4px 20px rgba(15, 42, 82, 0.08);
+    padding: 4px 0 max(4px, env(safe-area-inset-bottom)); /* ← era 8px */
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .bottomNavItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;        /* ← era 3px */
+    flex: 1;
+    padding: 2px 0;  /* ← era 4px */
+    text-decoration: none;
+    color: rgba(255,255,255,0.5); /* ← mai vizibil pe fundal întunecat */
+    transition: color 0.2s;
+  }
+
+  .bottomNavIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;     /* ← era 40px */
+    height: 28px;    /* ← era 32px */
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .bottomNavLabel {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .bottomNavActive {
+    color: #fff;
+  }
+
+  .bottomNavActive .bottomNavIcon {
+    background: rgba(26,138,60,0.35);
+    color: #fff;
+  }
+
+  .bottomNavActive .bottomNavLabel {
+    font-weight: 700;
+    color: #fff;
   }
 }

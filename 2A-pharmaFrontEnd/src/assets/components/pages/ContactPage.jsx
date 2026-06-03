@@ -1,18 +1,38 @@
 import { useState } from "react";
 import { useLang, t } from "../../hooks/useLang.jsx";
 import styles from "./ContactPage.module.css";
+import { db } from "../../../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function ContactPage() {
   const { lang } = useLang();
   const tx = t[lang];
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    try {
+      await addDoc(collection(db, "messages"), {
+        ...form,
+        createdAt: serverTimestamp(),
+        read: false,
+      });
+      setSent(true);
+    } catch (err) {
+      console.error("Gabim ne dergim:", err);
+      alert(
+        lang === "al"
+          ? "Ndodhi një gabim. Provo përsëri."
+          : "Ndodhi një gabim. Provo përsëri."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,15 +69,21 @@ export default function ContactPage() {
             <div className={styles.successMsg}>
               <div className={styles.successIcon}>✓</div>
               <div className={styles.successTitle}>
-                {lang === "al" ? "Mesazhi u dërgua!" : "Message sent!"}
+                {lang === "al" ? "Mesazhi u dërgua!" : "Mesazhi u dërgua!"}
               </div>
               <div className={styles.successSub}>
                 {lang === "al"
                   ? "Do t'ju kontaktojmë sa më shpejt."
-                  : "We will contact you as soon as possible."}
+                  : "Do t'ju kontaktojmë sa më shpejt."}
               </div>
-              <button className={styles.resetBtn} onClick={() => { setSent(false); setForm({ name: "", email: "", phone: "", message: "" }); }}>
-                {lang === "al" ? "Dërgo tjetër" : "Send another"}
+              <button
+                className={styles.resetBtn}
+                onClick={() => {
+                  setSent(false);
+                  setForm({ name: "", email: "", phone: "", message: "" });
+                }}
+              >
+                {lang === "al" ? "Dërgo tjetër" : "Dergo tjetër"}
               </button>
             </div>
           ) : (
@@ -65,22 +91,55 @@ export default function ContactPage() {
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label>{tx.contact.name}</label>
-                  <input name="name" value={form.name} onChange={handle} required placeholder={tx.contact.name} />
+                  <input
+                    name="name"
+                    value={form.name}
+                    onChange={handle}
+                    required
+                    placeholder={tx.contact.name}
+                  />
                 </div>
                 <div className={styles.formGroup}>
                   <label>{tx.contact.email}</label>
-                  <input name="email" type="email" value={form.email} onChange={handle} required placeholder={tx.contact.email} />
+                  <input
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handle}
+                    required
+                    placeholder={tx.contact.email}
+                  />
                 </div>
               </div>
               <div className={styles.formGroup}>
                 <label>{tx.contact.phone}</label>
-                <input name="phone" value={form.phone} onChange={handle} placeholder={tx.contact.phone} />
+                <input
+                  name="phone"
+                  value={form.phone}
+                  onChange={handle}
+                  placeholder={tx.contact.phone}
+                />
               </div>
               <div className={styles.formGroup}>
                 <label>{tx.contact.message}</label>
-                <textarea name="message" value={form.message} onChange={handle} required placeholder={tx.contact.message} rows={5} />
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handle}
+                  required
+                  placeholder={tx.contact.message}
+                  rows={5}
+                />
               </div>
-              <button type="submit" className={styles.submitBtn}>{tx.contact.send}</button>
+              <button
+                type="submit"
+                className={styles.submitBtn}
+                disabled={loading}
+              >
+                {loading
+                  ? (lang === "al" ? "Duke dërguar..." : "Po dergohet...")
+                  : tx.contact.send}
+              </button>
             </form>
           )}
         </div>

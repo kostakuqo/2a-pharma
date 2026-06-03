@@ -19,8 +19,8 @@
 .formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .formGroup { display: flex; flex-direction: column; gap: 6px; }
 .formGroup label {
-  font-size: 11px; font-weight: 700; color: var(--navy);
-  text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 11px; font-weight: 800; color:white;
+  text-transform: uppercase; letter-spacing: 0.09em;
 }
 .formGroup input, .formGroup textarea {
   padding: 11px 14px; border: 1px solid var(--navy-soft);
@@ -44,9 +44,9 @@
 .submitBtn:hover { background: var(--green-dark); }
 
 .successMsg { text-align: center; padding: 48px 20px; }
-.successIcon { font-size: 52px; color: var(--green); margin-bottom: 16px; }
-.successTitle { font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-.successSub { font-size: 14px; color: var(--gray-600); margin-bottom: 28px; }
+.successIcon { font-size: 52px; color: var(--white); margin-bottom: 16px; }
+.successTitle { font-size: 24px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.successSub { font-size: 14px; color: var(--white); margin-bottom: 28px; }
 .resetBtn {
   padding: 11px 26px; background: var(--navy-pale); color: var(--navy);
   border: 1px solid var(--navy-soft); border-radius: var(--r-md);

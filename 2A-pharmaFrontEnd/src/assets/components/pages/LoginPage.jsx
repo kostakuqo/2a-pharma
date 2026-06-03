@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../../src/firebase.js";
+import { useNavigate } from "react-router-dom"; // ← adaugă
 import styles from "./LoginPage.module.css";
 
 export default function LoginPage() {
@@ -8,6 +9,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError]       = useState("");
   const [loading, setLoading]   = useState(false);
+  const navigate = useNavigate(); // ← adaugă
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -15,9 +17,9 @@ export default function LoginPage() {
     setError("");
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/admin";
+      navigate("/admin"); // ← înlocuiește window.location.href
     } catch (err) {
-      setError("Email sau parolă greșită!");
+      setError("Email ose passwordi gabim!");
     } finally {
       setLoading(false);
     }

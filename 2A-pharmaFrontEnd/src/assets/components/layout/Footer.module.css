@@ -38,7 +38,7 @@
   padding: 22px var(--section-px); flex-wrap: wrap; gap: 12px;
 }
 
-.copy { font-size: 12px; color: white; }
+.copy { font-size: 12px; color: white;margin-bottom: 12px; }
 
 .links { display: flex; gap: 20px; }
 .links a { font-size: 12px; color: white; text-decoration: none; transition: color var(--t-fast); }
